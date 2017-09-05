@@ -5,4 +5,3 @@ URxvt.scrollBar:       false
 URxvt.perl-ext-common: resize-font
 
 #include "base16-default-dark-256.Xresources"
-#include "local.Xresources"
