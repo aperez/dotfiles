@@ -3,7 +3,7 @@ if [[ $(dmesg | grep vboxguest) ]]; then
 fi
 
 if [[ -f ~/.Xresources  ]]; then
-    xrdb -merge -I$HOME ~/.Xresources
+    xrdb -merge -I$HOME/.Xresources.d ~/.Xresources.d/Xresources
 fi
 
 exec i3

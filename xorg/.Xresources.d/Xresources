@@ -1,0 +1,8 @@
+URxvt.font:            xft:Source Code Pro:pixelsize=16:antialias=true:hinting=true
+URxvt.boldFont:        xft:Source Code Pro:pixelsize=16:bold:antialias=true:hinting=true
+
+URxvt.scrollBar:       false
+URxvt.perl-ext-common: resize-font
+
+#include "base16-default-dark-256.Xresources"
+#include "local.Xresources"
