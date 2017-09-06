@@ -35,6 +35,9 @@
 (setq tab-width 4)
 (setq c-basic-offset 4)
 
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
+
 (setq local-file (expand-file-name "local.el" user-emacs-directory))
 (when (file-exists-p local-file)
   (load local-file))
