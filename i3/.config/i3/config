@@ -167,4 +167,4 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Application shortcuts
 bindsym $mod+b exec --no-startup-id firefox
-bindsym $mod+m exec --no-startup-id emacsclient -c -a emacs
+bindsym $mod+m exec --no-startup-id emacsclient -nc -a ""

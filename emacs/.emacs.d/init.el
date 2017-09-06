@@ -1,6 +1,6 @@
 (tool-bar-mode 0)
 (scroll-bar-mode -1)
-(set-frame-font "Source Code Pro 13" nil t)
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
 
 (require 'server)
 (unless (server-running-p) (server-start))
