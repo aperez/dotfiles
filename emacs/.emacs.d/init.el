@@ -1,6 +1,6 @@
 (tool-bar-mode 0)
 (scroll-bar-mode -1)
-(set-frame-font "Source Code Pro 14" nil t)
+(set-frame-font "Source Code Pro 13" nil t)
 
 (require 'server)
 (unless (server-running-p) (server-start))
@@ -29,7 +29,7 @@
 
 (use-package base16-theme
   :ensure t
-  :config (load-theme 'base16-grayscale-light t))
+  :config (load-theme 'base16-default-dark t))
 
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
