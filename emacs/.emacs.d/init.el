@@ -9,10 +9,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(setq local-file (expand-file-name "local.el" user-emacs-directory))
-(when (file-exists-p local-file)
-  (load local-file))
-
 (require 'package)
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
@@ -39,3 +35,6 @@
 (setq tab-width 4)
 (setq c-basic-offset 4)
 
+(setq local-file (expand-file-name "local.el" user-emacs-directory))
+(when (file-exists-p local-file)
+  (load local-file))
