@@ -168,3 +168,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 # Application shortcuts
 bindsym $mod+b exec --no-startup-id firefox
 bindsym $mod+m exec --no-startup-id emacsclient -nc -a ""
+
+# Lock the screen
+bindsym $mod+Shift+p exec i3lock -c 181818
