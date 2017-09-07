@@ -30,6 +30,12 @@
 (use-package base16-theme
   :ensure t
   :config (load-theme 'base16-default-dark t))
+(custom-theme-set-faces
+  'base16-default-dark
+  `(linum ((t (:background ,(plist-get base16-default-dark-colors :base00)
+                           :foreground ,(plist-get base16-default-dark-colors :base02)))))
+  `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01))))))
+;(setq-default left-fringe-width 4)
 
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
@@ -39,7 +45,10 @@
 (setq auto-save-default nil) ; stop creating #autosave# files
 
 (setq-default fill-column 80)
+(setq-default word-wrap t)
+(global-linum-mode 1)
 
+(setq org-startup-truncated nil)
 (add-to-list 'org-file-apps
   '("\\.pdf" . "zathura --fork %s"))
 (setq org-link-file-path-type 'adaptive)
