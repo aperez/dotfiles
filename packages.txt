@@ -8,6 +8,7 @@ firefox
 fish
 htop
 i3
+keepassx2
 pulseaudio
 pulseaudio-alsa
 rxvt-unicode-patched
