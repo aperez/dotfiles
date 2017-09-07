@@ -38,6 +38,12 @@
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
+(setq-default fill-column 80)
+
+(add-to-list 'org-file-apps
+  '("\\.pdf" . "zathura --fork %s"))
+(setq org-link-file-path-type 'adaptive)
+
 (setq local-file (expand-file-name "local.el" user-emacs-directory))
 (when (file-exists-p local-file)
   (load local-file))
