@@ -54,7 +54,9 @@
 (setq org-startup-truncated nil)
 (eval-after-load "org"
   '(progn
-     (setcdr (assoc "\\.pdf\\'" org-file-apps) "zathura --fork %s")))
+     (delete '("\\.pdf\\'" . default) org-file-apps)
+     (add-to-list 'org-file-apps '("\\.pdf::\\([0-9]+\\)\\'" . "zathura --fork \"%s\" -P %1"))
+     (add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura --fork %s"))))
 (setq org-link-file-path-type 'adaptive)
 
 (setq local-file (expand-file-name "local.el" user-emacs-directory))
