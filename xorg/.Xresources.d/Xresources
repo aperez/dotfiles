@@ -1,5 +1,5 @@
-URxvt.font:            xft:Source Code Pro:pixelsize=16:antialias=true:hinting=true
-URxvt.boldFont:        xft:Source Code Pro:pixelsize=16:bold:antialias=true:hinting=true
+URxvt.font:            xft:Source Code Pro:pixelsize=17:antialias=true:hinting=true
+URxvt.boldFont:        xft:Source Code Pro:pixelsize=17:bold:antialias=true:hinting=true
 
 URxvt.scrollBar:       false
 URxvt.perl-ext-common: resize-font
