@@ -46,11 +46,14 @@
 
 (setq-default fill-column 80)
 (setq-default word-wrap t)
+
 (global-linum-mode 1)
+(set-face-attribute 'linum nil :height 125)
 
 (setq org-startup-truncated nil)
-(add-to-list 'org-file-apps
-  '("\\.pdf" . "zathura --fork %s"))
+(eval-after-load "org"
+  '(progn
+     (setcdr (assoc "\\.pdf\\'" org-file-apps) "zathura --fork %s")))
 (setq org-link-file-path-type 'adaptive)
 
 (setq local-file (expand-file-name "local.el" user-emacs-directory))
