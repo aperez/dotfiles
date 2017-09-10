@@ -21,6 +21,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package org
+  :ensure org-plus-contrib
+  :pin org)
+
 (use-package try
   :ensure t)
 
@@ -37,6 +41,9 @@
                            :foreground ,(plist-get base16-default-dark-colors :base02)))))
   `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01))))))
 ;(setq-default left-fringe-width 4)
+
+(use-package fish-mode
+  :ensure t)
 
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
