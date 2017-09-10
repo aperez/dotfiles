@@ -174,4 +174,4 @@ for_window [class="^Keepassx2$"] resize set 625 400
 for_window [class="^Keepassx2$"] move position center
 
 # Lock the screen
-bindsym $mod+Shift+BackSpace exec i3lock -c 181818
+bindsym $mod+Shift+BackSpace exec i3lock -ec 181818

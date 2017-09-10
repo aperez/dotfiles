@@ -13,6 +13,7 @@ pulseaudio
 pulseaudio-alsa
 rxvt-unicode-patched
 stow
+texlive-lang
 texlive-most
 tmux
 ttf-font-awesome
