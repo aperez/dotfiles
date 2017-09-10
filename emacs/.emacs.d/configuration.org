@@ -42,6 +42,10 @@
     :ensure t
     :config (global-set-key (kbd "C-x g") 'magit-status))
 
+  (use-package powerline
+    :ensure t
+    :config (setq powerline-default-separator 'zigzag))
+
   (setq-default indent-tabs-mode nil)
   (setq tab-width 4)
   (setq c-basic-offset 4)
