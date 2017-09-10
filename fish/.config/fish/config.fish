@@ -1,10 +1,10 @@
 set fish_greeting ""
 
-alias g git
-alias gc 'git commit'
-alias gca 'git commit -a'
-alias gd 'git diff'
-alias gst 'git status'
+abbr --add g git
+abbr --add gc 'git commit'
+abbr --add gca 'git commit -a'
+abbr --add gd 'git diff'
+abbr --add gst 'git status'
 
 start_ssh_agent
 
