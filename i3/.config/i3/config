@@ -175,3 +175,7 @@ for_window [class="^Keepassx2$"] move position center
 
 # Lock the screen
 bindsym $mod+Shift+BackSpace exec i3lock -ec 181818
+
+for_window [class="^Pinentry$"] floating enable
+for_window [class="^Pinentry$"] resize set 624 400
+for_window [class="^Pinentry$"] move position center

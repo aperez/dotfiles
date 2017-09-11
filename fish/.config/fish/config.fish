@@ -6,7 +6,7 @@ abbr --add gca 'git commit -a'
 abbr --add gd 'git diff'
 abbr --add gst 'git status'
 
-start_ssh_agent
+setenv SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 
 # Start X at login
 if status --is-login
