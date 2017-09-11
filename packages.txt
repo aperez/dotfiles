@@ -2,6 +2,7 @@ acpi
 acpid
 adobe-source-code-pro-fonts
 base-devel
+biber
 dmenu
 emacs
 firefox
@@ -9,6 +10,7 @@ fish
 htop
 i3
 keepassx2
+pass
 pulseaudio
 pulseaudio-alsa
 rxvt-unicode-patched
