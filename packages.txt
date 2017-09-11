@@ -14,6 +14,8 @@ pass
 pulseaudio
 pulseaudio-alsa
 rxvt-unicode-patched
+slack-desktop
+spotify
 stow
 texlive-lang
 texlive-most
