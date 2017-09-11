@@ -5,6 +5,8 @@ abbr --add gc 'git commit'
 abbr --add gca 'git commit -a'
 abbr --add gd 'git diff'
 abbr --add gst 'git status'
+abbr --add p 'pass'
+abbr --add pc 'pass -c'
 
 setenv SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 
