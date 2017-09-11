@@ -2,4 +2,4 @@
 	name = Alexandre Perez
 	email = alexandrecperez@gmail.com
 [push]
-	default = matching
+	default = simple
