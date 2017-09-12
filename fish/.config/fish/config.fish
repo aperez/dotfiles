@@ -9,6 +9,7 @@ abbr --add p 'pass'
 abbr --add pc 'pass -c'
 
 setenv SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # Start X at login
 if status --is-login
