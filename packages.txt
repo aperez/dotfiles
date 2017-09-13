@@ -9,7 +9,6 @@ firefox
 fish
 htop
 i3
-keepassx2
 pass
 pulseaudio
 pulseaudio-alsa
