@@ -6,8 +6,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
 
 * Bootstrap =org-mode= in [[./init.el][init.el]]
   File [[./init.el][init.el]] bootsraps the configuration. It sets up =use-package= along with
-  its repositories, and installs a newer version of =org-mode=. After that, this
-  document is loaded and evaluated via =org-babel-load-file=.
+  package repositories, and installs a newer version of =org-mode=. After that,
+  this document is loaded and evaluated via =org-babel-load-file=.
   #+INCLUDE: init.el src emacs-lisp
 
 * Defaults
@@ -26,6 +26,43 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (menu-bar-mode -1)
     (tool-bar-mode 0)
     (scroll-bar-mode -1)
+  #+END_SRC
+
+  Use spaces instead of tabs and set tab width as 4 spaces:
+  #+BEGIN_SRC emacs-lisp
+    (setq-default indent-tabs-mode nil)
+    (setq tab-width 4)
+  #+END_SRC
+
+  Show line numbers next to the left fringe:
+  #+BEGIN_SRC emacs-lisp
+    (global-linum-mode 1)
+  #+END_SRC
+
+  Enable soft word wrap instead of truncating lines:
+  #+BEGIN_SRC emacs-lisp
+    (setq-default word-wrap t)
+  #+END_SRC
+
+  Set the number of columns beyound which line-wrapping happens to 80:
+  #+BEGIN_SRC emacs-lisp
+    (setq-default fill-column 80)
+  #+END_SRC
+
+  Stop creating =backup~= and =#autosave#= files. I suspect I will eventually
+  turn on the backup feature, possibly using a temporary directory to store
+  them, but let's leave it off for now:
+  #+BEGIN_SRC emacs-lisp
+      (setq make-backup-files nil)
+      (setq auto-save-default nil)
+  #+END_SRC
+
+  Save Emacs' [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html][customizations buffer]] configurations in a separate, untracked file
+  so that it doesn't clutter [[./init.el][init.el]]:
+  #+BEGIN_SRC emacs-lisp
+    (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+    (when (file-exists-p custom-file)
+      (load custom-file))
   #+END_SRC
 
 * Theming
@@ -49,6 +86,13 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
         ))
   #+END_SRC
 
+  Fix the size of line numbers shown when =linum-mode= is active. Otherwise,
+  when increasing the font size via =C-x C-+=, line numbers would overlap with
+  the fringe ([[https://unix.stackexchange.com/a/238465][more info]]).
+  #+BEGIN_SRC emacs-lisp
+    (set-face-attribute 'linum nil :height 125)
+  #+END_SRC
+
   [[https://github.com/milkypostman/powerline][Powerline]] theme for the mode line:
   #+BEGIN_SRC emacs-lisp
     (use-package powerline
@@ -59,45 +103,50 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
       (powerline-default-theme))
   #+END_SRC
 
-* Rest of Configuration
-#+BEGIN_SRC emacs-lisp
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (when (file-exists-p custom-file)
-    (load custom-file))
+* Packages
+** Try
+   [[https://github.com/larstvei/Try][=try=]] let's me try out Emacs packages without installing them:
+   #+BEGIN_SRC emacs-lisp
+     (use-package try
+       :ensure t)
+   #+END_SRC
 
-  (use-package try
-    :ensure t)
+** Which-key
+   I fully recommend [[https://github.com/justbur/emacs-which-key][=which-key=]] to anyone starting to learn Emacs. It displays
+   the keybindings following the currently entered incomplete command in a
+   popup:
+   #+BEGIN_SRC emacs-lisp
+     (use-package which-key
+       :ensure t
+       :config (which-key-mode))
+   #+END_SRC
 
-  (use-package which-key
-    :ensure t
-    :config (which-key-mode))
+** Magit
+   Use the awesome [[https://github.com/magit/magit][=magit=]] git interface:
+   #+BEGIN_SRC emacs-lisp
+     (use-package magit
+       :ensure t
+       :bind ("C-x g" . magit-status))
+   #+END_SRC
 
-  (use-package magit
-    :ensure t
-    :config (global-set-key (kbd "C-x g") 'magit-status))
+* Org-mode
+  Open PDF links in =zathura=:
+  #+BEGIN_SRC emacs-lisp
+    (eval-after-load "org"
+      '(progn
+         (delete '("\\.pdf\\'" . default) org-file-apps)
+         (add-to-list 'org-file-apps
+                      '("\\.pdf::\\([0-9]+\\)\\'" . "zathura --fork \"%s\" -P %1"))
+         (add-to-list 'org-file-apps
+                      '("\\.pdf\\'" . "zathura --fork %s"))))
+  #+END_SRC
 
-  (setq-default indent-tabs-mode nil)
-  (setq tab-width 4)
-  (setq c-basic-offset 4)
-
-  (setq make-backup-files nil) ; stop creating backup~ files
-  (setq auto-save-default nil) ; stop creating #autosave# files
-
-  (setq-default fill-column 80)
-  (setq-default word-wrap t)
-
-  (global-linum-mode 1)
-  (set-face-attribute 'linum nil :height 125)
-
-  (setq org-startup-truncated nil)
-  (eval-after-load "org"
-    '(progn
-       (delete '("\\.pdf\\'" . default) org-file-apps)
-       (add-to-list 'org-file-apps '("\\.pdf::\\([0-9]+\\)\\'" . "zathura --fork \"%s\" -P %1"))
-       (add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura --fork %s"))))
-
-  (setq local-file (expand-file-name "local.el" user-emacs-directory))
-  (when (file-exists-p local-file)
-    (load local-file))
-#+END_SRC
+* Load local configuration
+  I keep local configurations that are not to be version controlled in a
+  separate file.
+  #+BEGIN_SRC emacs-lisp
+    (setq local-file (expand-file-name "local.el" user-emacs-directory))
+    (when (file-exists-p local-file)
+      (load local-file))
+  #+END_SRC
 
