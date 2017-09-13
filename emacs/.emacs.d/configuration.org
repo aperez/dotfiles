@@ -2,19 +2,65 @@
 #+AUTHOR: Alexandre Perez
 #+OPTIONS: toc:nil num:nil
 
-* Bootstrap =org-mode=
-#+INCLUDE: init.el src emacs-lisp
+This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikipedia.org/wiki/Literate_programming][literate]] Emacs configuration.
+
+* Bootstrap =org-mode= in [[./init.el][init.el]]
+  File [[./init.el][init.el]] bootsraps the configuration. It sets up =use-package= along with
+  its repositories, and installs a newer version of =org-mode=. After that, this
+  document is loaded and evaluated via =org-babel-load-file=.
+  #+INCLUDE: init.el src emacs-lisp
+
+* Defaults
+  Emacs supports a [[https://www.emacswiki.org/emacs/EmacsClient][client-server architecture]], allowing this configuration to
+  effectivelly be only instanced once by the Emacs server. I normally use =emacs
+  --daemon= or =emacsclient -a ""= to start the server, but in case it hasn't
+  started yet, let us start it now:
+  #+BEGIN_SRC emacs-lisp
+    (require 'server)
+    (unless (server-running-p)
+      (server-start))
+  #+END_SRC
+
+  Hide the menu, toolbar and scroll bar:
+  #+BEGIN_SRC emacs-lisp
+    (menu-bar-mode -1)
+    (tool-bar-mode 0)
+    (scroll-bar-mode -1)
+  #+END_SRC
+
+* Theming
+  I like using [[http://adobe-fonts.github.io/source-code-pro/][Adobe Source Code Pro]] as my default font:
+  #+BEGIN_SRC emacs-lisp
+    (add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
+  #+END_SRC
+
+  [[https://github.com/belak/base16-emacs][Base16]] default-dark theme. I find my =custom-theme-set-faces= tweaks to
+  =fringe= and =linum= colors make the theme more visually appealing when
+  =linum-mode= is active:
+  #+BEGIN_SRC emacs-lisp
+    (use-package base16-theme
+      :ensure t
+      :config
+      (load-theme 'base16-default-dark t)
+      (custom-theme-set-faces 'base16-default-dark
+        `(linum ((t (:background ,(plist-get base16-default-dark-colors :base00)
+                     :foreground ,(plist-get base16-default-dark-colors :base02)))))
+        `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01)))))
+        ))
+  #+END_SRC
+
+  [[https://github.com/milkypostman/powerline][Powerline]] theme for the mode line:
+  #+BEGIN_SRC emacs-lisp
+    (use-package powerline
+      :ensure t
+      :init
+      (setq powerline-default-separator 'zigzag)
+      :config
+      (powerline-default-theme))
+  #+END_SRC
 
 * Rest of Configuration
 #+BEGIN_SRC emacs-lisp
-  (tool-bar-mode 0)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
-
-  (require 'server)
-  (unless (server-running-p) (server-start))
-
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (when (file-exists-p custom-file)
     (load custom-file))
@@ -26,25 +72,9 @@
     :ensure t
     :config (which-key-mode))
 
-  (use-package base16-theme
-    :ensure t
-    :config (load-theme 'base16-default-dark t))
-  (custom-theme-set-faces
-    'base16-default-dark
-    `(linum ((t (:background ,(plist-get base16-default-dark-colors :base00)
-                             :foreground ,(plist-get base16-default-dark-colors :base02)))))
-    `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01))))))
-
-  (use-package fish-mode
-    :ensure t)
-
   (use-package magit
     :ensure t
     :config (global-set-key (kbd "C-x g") 'magit-status))
-
-  (use-package powerline
-    :ensure t
-    :config (setq powerline-default-separator 'zigzag))
 
   (setq-default indent-tabs-mode nil)
   (setq tab-width 4)
@@ -65,7 +95,6 @@
        (delete '("\\.pdf\\'" . default) org-file-apps)
        (add-to-list 'org-file-apps '("\\.pdf::\\([0-9]+\\)\\'" . "zathura --fork \"%s\" -P %1"))
        (add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura --fork %s"))))
-  (setq org-link-file-path-type 'adaptive)
 
   (setq local-file (expand-file-name "local.el" user-emacs-directory))
   (when (file-exists-p local-file)

@@ -9,6 +9,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package)
+
 (use-package org
   :ensure org-plus-contrib
   :pin org)
