@@ -21,11 +21,27 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
       (server-start))
   #+END_SRC
 
+  Increase the GC threshold to 50MB (instead of 0.8MB):
+  #+BEGIN_SRC emacs-lisp
+    (setq gc-cons-threshold 50000000)
+  #+END_SRC
+
+  No initial startup screen. Also, clear the scratch buffer:
+  #+BEGIN_SRC emacs-lisp
+    (setq inhibit-startup-message t)
+    (setq initial-scratch-message nil)
+  #+END_SRC
+
   Hide the menu, toolbar and scroll bar:
   #+BEGIN_SRC emacs-lisp
     (menu-bar-mode -1)
     (tool-bar-mode 0)
     (scroll-bar-mode -1)
+  #+END_SRC
+
+  Turn of syntax highlighting when available:
+  #+BEGIN_SRC emacs-lisp
+    (global-font-lock-mode t)
   #+END_SRC
 
   Use spaces instead of tabs and set tab width as 4 spaces:
@@ -47,6 +63,44 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
   Set the number of columns beyound which line-wrapping happens to 80:
   #+BEGIN_SRC emacs-lisp
     (setq-default fill-column 80)
+  #+END_SRC
+
+  Delete trailing whitespace every time buffers are saved:
+  #+BEGIN_SRC emacs-lisp
+    (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  #+END_SRC
+
+  If the file does not end with a newline character, automatically insert one:
+  #+BEGIN_SRC emacs-lisp
+    (setq require-final-newline t)
+  #+END_SRC
+
+  Automatically follow symlinks:
+  #+BEGIN_SRC emacs-lisp
+    (setq vc-follow-symlinks t)
+  #+END_SRC
+
+  Automatically refresh the buffer if file is modified elsewhere:
+  #+BEGIN_SRC emacs-lisp
+    (global-auto-revert-mode t)
+  #+END_SRC
+
+  Enable =delete-selection-mode=, so that when text is inserted while a region
+  is selected, the typed text replaces that region:
+  #+BEGIN_SRC emacs-lisp
+    (delete-selection-mode t)
+  #+END_SRC
+
+  I don't want to type =yes/no= to confirm or cancel commands, let me just type
+  =y/n=:
+  #+BEGIN_SRC emacs-lisp
+    (fset 'yes-or-no-p 'y-or-n-p)
+  #+END_SRC
+
+  Show matching parenthesis in elisp. Also, get rid of the visual delay:
+  #+BEGIN_SRC emacs-lisp
+    (show-paren-mode t)
+    (setq show-paren-delay 0.0)
   #+END_SRC
 
   Stop creating =backup~= and =#autosave#= files. I suspect I will eventually
@@ -90,7 +144,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
   when increasing the font size via =C-x C-+=, line numbers would overlap with
   the fringe ([[https://unix.stackexchange.com/a/238465][more info]]).
   #+BEGIN_SRC emacs-lisp
-    (set-face-attribute 'linum nil :height 125)
+    (set-face-attribute 'linum nil :height 110)
   #+END_SRC
 
   [[https://github.com/milkypostman/powerline][Powerline]] theme for the mode line:
@@ -149,4 +203,3 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (when (file-exists-p local-file)
       (load local-file))
   #+END_SRC
-
