@@ -1,5 +1,7 @@
 .PHONY: all install-packages stow
 
+STOWFLAGS = --ignore "readme\..*" --restow
+
 all: install-packages stow
 
 install-packages:
@@ -7,4 +9,4 @@ install-packages:
 	pacaur -S --needed --noconfirm `cat packages.txt`
 
 stow:
-	stow --restow `ls -d */`
+	stow $(STOWFLAGS) `ls -d */`
