@@ -194,6 +194,11 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+END_SRC
 
 * Org-mode
+  Underline links:
+  #+BEGIN_SRC emacs-lisp
+    (set-face-underline-p 'org-link t)
+  #+END_SRC
+
   Open PDF links in =zathura=:
   #+BEGIN_SRC emacs-lisp
     (eval-after-load "org"
