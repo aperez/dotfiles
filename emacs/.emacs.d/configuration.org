@@ -168,6 +168,13 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
   #+END_SRC
 
 * Packages
+** Delight
+   [[https://savannah.nongnu.org/projects/delight][=delight=]] controls the way minor modes appear on the mode line:
+   #+BEGIN_SRC emacs-lisp
+     (use-package delight
+       :ensure t)
+   #+END_SRC
+
 ** Try
    [[https://github.com/larstvei/Try][=try=]] let's me try out Emacs packages without installing them:
    #+BEGIN_SRC emacs-lisp
@@ -181,6 +188,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+BEGIN_SRC emacs-lisp
      (use-package which-key
        :ensure t
+       :delight
        :config (which-key-mode))
    #+END_SRC
 
@@ -213,6 +221,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
 
      (use-package swiper
        :ensure t
+       :delight ivy-mode
        :bind ("C-s" . swiper)
        :config
        (ivy-mode 1)
@@ -241,6 +250,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+BEGIN_SRC emacs-lisp
      (use-package undo-tree
        :ensure t
+       :delight
        :init
        (global-undo-tree-mode))
    #+END_SRC
@@ -250,6 +260,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+BEGIN_SRC emacs-lisp
      (use-package projectile
        :ensure t
+       :delight '(:eval (concat " P[" (projectile-project-name) "]"))
        :bind ("M-p" . projectile-command-map)
        :config
        (projectile-global-mode)
