@@ -12,7 +12,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
 
 * Defaults
   Emacs supports a [[https://www.emacswiki.org/emacs/EmacsClient][client-server architecture]], allowing this configuration to
-  effectivelly be only instanced once by the Emacs server. I normally use =emacs
+  effectively be only instanced once by the Emacs server. I normally use =emacs
   --daemon= or =emacsclient -a ""= to start the server, but in case it hasn't
   started yet, let us start it now:
   #+BEGIN_SRC emacs-lisp
@@ -65,7 +65,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (setq-default word-wrap t)
   #+END_SRC
 
-  Set the number of columns beyound which line-wrapping happens to 80:
+  Set the number of columns beyond which line-wrapping happens to 80:
   #+BEGIN_SRC emacs-lisp
     (setq-default fill-column 80)
   #+END_SRC
@@ -96,13 +96,18 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (delete-selection-mode t)
   #+END_SRC
 
+  Turn on spell checking:
+  #+BEGIN_SRC emacs-lisp
+    (add-hook 'text-mode-hook 'flyspell-mode)
+  #+END_SRC
+
   I don't want to type =yes/no= to confirm or cancel commands, let me just type
   =y/n=:
   #+BEGIN_SRC emacs-lisp
     (fset 'yes-or-no-p 'y-or-n-p)
   #+END_SRC
 
-  Show matching parenthesis in elisp. Also, get rid of the visual delay:
+  Show matching parenthesis in lisp. Also, get rid of the visual delay:
   #+BEGIN_SRC emacs-lisp
     (show-paren-mode t)
     (setq show-paren-delay 0.0)
@@ -199,8 +204,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+END_SRC
 
 ** Counsel and Swiper
-   [[https://github.com/abo-abo/swiper][=counsel= and =swiper=]] enable better completion mechanisms for the minibuffer
-   and for search, respecively:
+   [[https://github.com/abo-abo/swiper][=counsel= and =swiper=]] enable better completion mechanisms for the mini-buffer
+   and for search, respectively:
    #+BEGIN_SRC emacs-lisp
      (use-package counsel
        :ensure t
