@@ -39,6 +39,11 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (scroll-bar-mode -1)
   #+END_SRC
 
+  Stop blinking the cursor:
+  #+BEGIN_SRC emacs-lisp
+    (blink-cursor-mode 0)
+  #+END_SRC
+
   Turn of syntax highlighting when available:
   #+BEGIN_SRC emacs-lisp
     (global-font-lock-mode t)
@@ -190,6 +195,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
      (use-package try
        :ensure t)
    #+END_SRC
+
 ** Which-key
    I fully recommend [[https://github.com/justbur/emacs-which-key][=which-key=]] to anyone starting to learn Emacs. It displays
    the keybindings following the currently entered incomplete command in a
