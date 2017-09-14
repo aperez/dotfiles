@@ -241,7 +241,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+END_SRC
 
 ** Projectile
-   =projectile= makes navigating within projects really easy:
+   [[https://github.com/bbatsov/projectile][=projectile=]] makes navigating within projects really easy:
    #+BEGIN_SRC emacs-lisp
      (use-package projectile
        :ensure t
@@ -254,6 +254,16 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        :ensure t
        :config
        (counsel-projectile-on))
+   #+END_SRC
+
+** Auctex
+   Enable [[https://www.gnu.org/software/auctex/][=auctex=]] package for editing LaTeX files.
+   #+BEGIN_SRC emacs-lisp
+      (use-package tex
+        :defer t
+        :ensure auctex
+        :config
+        (setq TeX-auto-save t))
    #+END_SRC
 
 * Org-mode
