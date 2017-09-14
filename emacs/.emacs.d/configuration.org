@@ -193,6 +193,22 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (set-face-attribute 'aw-leading-char-face nil :height 200))
    #+END_SRC
 
+** Counsel and Swiper
+   [[https://github.com/abo-abo/swiper][=counsel= and =swiper=]] enable better completion mechanisms for the minibuffer
+   and for search, respecively:
+   #+BEGIN_SRC emacs-lisp
+     (use-package counsel
+       :ensure t
+       :bind ("M-x" . counsel-M-x))
+
+     (use-package swiper
+       :ensure t
+       :bind ("C-s" . swiper)
+       :config
+       (ivy-mode 1)
+       (setq ivy-use-virtual-buffers t))
+   #+END_SRC
+
 * Org-mode
   Underline links:
   #+BEGIN_SRC emacs-lisp
