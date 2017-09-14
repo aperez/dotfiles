@@ -262,13 +262,22 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
    #+END_SRC
 
 ** Auctex
-   Enable [[https://www.gnu.org/software/auctex/][=auctex=]] package for editing LaTeX files.
+   Enable [[https://www.gnu.org/software/auctex/][=auctex=]] package for editing LaTeX files:
    #+BEGIN_SRC emacs-lisp
       (use-package tex
         :defer t
         :ensure auctex
         :config
         (setq TeX-auto-save t))
+   #+END_SRC
+
+** Popwin
+   [[https://github.com/m2ym/popwin-el][=popwin=]] enables closing popup windows via =C-g=:
+   #+BEGIN_SRC emacs-lisp
+     (use-package popwin
+       :ensure t
+       :config
+       (popwin-mode t))
    #+END_SRC
 
 * Org-mode
@@ -290,7 +299,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
 
 * Load local configuration
   I keep local configurations that are not to be version controlled in a
-  separate file.
+  separate file:
   #+BEGIN_SRC emacs-lisp
     (setq local-file (expand-file-name "local.el" user-emacs-directory))
     (when (file-exists-p local-file)
