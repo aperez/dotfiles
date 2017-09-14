@@ -145,7 +145,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
       (load-theme 'base16-default-dark t)
       (custom-theme-set-faces 'base16-default-dark
         `(linum ((t (:background ,(plist-get base16-default-dark-colors :base00)
-                     :foreground ,(plist-get base16-default-dark-colors :base02)))))
+                     :foreground ,(plist-get base16-default-dark-colors :base03)))))
         `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01)))))
         ))
   #+END_SRC
@@ -216,7 +216,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
      (use-package ace-window
        :ensure t
        :bind ([remap other-window] . ace-window)
-       :init
+       :config
        (set-face-attribute 'aw-leading-char-face nil :height 200))
    #+END_SRC
 
@@ -260,7 +260,7 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
      (use-package undo-tree
        :ensure t
        :delight
-       :init
+       :config
        (global-undo-tree-mode))
    #+END_SRC
 
