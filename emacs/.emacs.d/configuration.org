@@ -55,6 +55,11 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
     (global-linum-mode 1)
   #+END_SRC
 
+  Highlight cursor line:
+  #+BEGIN_SRC emacs-lisp
+    (global-hl-line-mode t)
+  #+END_SRC
+
   Enable soft word wrap instead of truncating lines:
   #+BEGIN_SRC emacs-lisp
     (setq-default word-wrap t)
@@ -215,6 +220,14 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
       (use-package avy
         :ensure t
         :bind ("M-s" . avy-goto-char))
+   #+END_SRC
+
+** Expand-region
+   [[https://github.com/magnars/expand-region.el][=expand-region=]] increasingly expands selected text by semantic units:
+   #+BEGIN_SRC emacs-lisp
+     (use-package expand-region
+       :ensure t
+       :bind ("C-=" . er/expand-region))
    #+END_SRC
 
 * Org-mode
