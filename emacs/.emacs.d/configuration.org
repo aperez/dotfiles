@@ -209,6 +209,14 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (setq ivy-use-virtual-buffers t))
    #+END_SRC
 
+** Avy
+   [[https://github.com/abo-abo/avy][=avy=]] allows you to jump around visible text:
+   #+BEGIN_SRC emacs-lisp
+      (use-package avy
+        :ensure t
+        :bind ("M-s" . avy-goto-char))
+   #+END_SRC
+
 * Org-mode
   Underline links:
   #+BEGIN_SRC emacs-lisp
