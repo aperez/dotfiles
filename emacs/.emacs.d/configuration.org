@@ -2,7 +2,7 @@
 #+AUTHOR: Alexandre Perez
 #+OPTIONS: toc:nil num:nil
 
-This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikipedia.org/wiki/Literate_programming][literate]] Emacs configuration.
+This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikipedia.org/wiki/Literate_programming][literate]] Emacs configuration.
 
 * Bootstrap =org-mode= in [[./init.el][init.el]]
   File [[./init.el][init.el]] bootsraps the configuration. It sets up =use-package= along with
@@ -181,8 +181,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
   #+END_SRC
 
 * Packages
-** Delight
-   [[https://savannah.nongnu.org/projects/delight][=delight=]] controls the way minor modes appear on the mode line:
+** [[https://savannah.nongnu.org/projects/delight][Delight]]
+   =delight= controls the way minor modes appear on the mode line:
    #+BEGIN_SRC emacs-lisp
      (use-package delight
        :ensure t)
@@ -197,15 +197,15 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        :delight auto-revert-mode)
    #+END_SRC
 
-** Try
-   [[https://github.com/larstvei/Try][=try=]] let's me try out Emacs packages without installing them:
+** [[https://github.com/larstvei/Try][Try]]
+   =try= let's me try out Emacs packages without installing them:
    #+BEGIN_SRC emacs-lisp
      (use-package try
        :ensure t)
    #+END_SRC
 
-** Which-key
-   I fully recommend [[https://github.com/justbur/emacs-which-key][=which-key=]] to anyone starting to learn Emacs. It displays
+** [[https://github.com/justbur/emacs-which-key][Which-key]]
+   I fully recommend =which-key= to anyone starting to learn Emacs. It displays
    the keybindings following the currently entered incomplete command in a
    popup:
    #+BEGIN_SRC emacs-lisp
@@ -215,16 +215,16 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        :config (which-key-mode))
    #+END_SRC
 
-** Magit
-   Use the awesome [[https://github.com/magit/magit][=magit=]] git interface:
+** [[https://github.com/magit/magit][Magit]]
+   Use the awesome =magit= git interface:
    #+BEGIN_SRC emacs-lisp
      (use-package magit
        :ensure t
        :bind ("C-x g" . magit-status))
    #+END_SRC
 
-** Ace-window
-   I am overriding the functionality of =other-window= with [[https://github.com/abo-abo/ace-window][=ace-window=]], which
+** [[https://github.com/abo-abo/ace-window][Ace-window]]
+   I am overriding the functionality of =other-window= with =ace-window=, which
    lets you select the window you are jumping to.
    #+BEGIN_SRC emacs-lisp
      (use-package ace-window
@@ -234,9 +234,9 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (set-face-attribute 'aw-leading-char-face nil :height 200))
    #+END_SRC
 
-** Counsel and Swiper
-   [[https://github.com/abo-abo/swiper][=counsel= and =swiper=]] enable better completion mechanisms for the mini-buffer
-   and for search, respectively:
+** [[https://github.com/abo-abo/swiper][Counsel and Swiper]]
+   =counsel= and =swiper= enable better completion mechanisms for the
+   mini-buffer and for search, respectively:
    #+BEGIN_SRC emacs-lisp
      (use-package counsel
        :ensure t
@@ -251,24 +251,24 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (setq ivy-use-virtual-buffers t))
    #+END_SRC
 
-** Avy
-   [[https://github.com/abo-abo/avy][=avy=]] allows you to jump around visible text:
+** [[https://github.com/abo-abo/avy][Avy]]
+   =avy= allows you to jump around visible text:
    #+BEGIN_SRC emacs-lisp
       (use-package avy
         :ensure t
         :bind ("M-s" . avy-goto-char))
    #+END_SRC
 
-** Expand-region
-   [[https://github.com/magnars/expand-region.el][=expand-region=]] increasingly expands selected text by semantic units:
+** [[https://github.com/magnars/expand-region.el][Expand-region]]
+   =expand-region= increasingly expands selected text by semantic units:
    #+BEGIN_SRC emacs-lisp
      (use-package expand-region
        :ensure t
        :bind ("C-=" . er/expand-region))
    #+END_SRC
 
-** Undo-tree
-   [[https://melpa.org/#/undo-tree][=undo-tree=]] allows you to recover any past state of a buffer by visually
+** [[https://melpa.org/#/undo-tree][Undo-tree]]
+   =undo-tree= allows you to recover any past state of a buffer by visually
    showing a branching tree of changes:
    #+BEGIN_SRC emacs-lisp
      (use-package undo-tree
@@ -278,8 +278,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (global-undo-tree-mode))
    #+END_SRC
 
-** Projectile
-   [[https://github.com/bbatsov/projectile][=projectile=]] makes navigating within projects really easy:
+** [[https://github.com/bbatsov/projectile][Projectile]]
+   =projectile= makes navigating within projects really easy:
    #+BEGIN_SRC emacs-lisp
      (use-package projectile
        :ensure t
@@ -295,8 +295,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (counsel-projectile-on))
    #+END_SRC
 
-** Auctex
-   Enable [[https://www.gnu.org/software/auctex/][=auctex=]] package for editing LaTeX files:
+** [[https://www.gnu.org/software/auctex/][Auctex]]
+   Enable =auctex= package for editing LaTeX files:
    #+BEGIN_SRC emacs-lisp
      (use-package tex
        :defer t
@@ -311,8 +311,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
        (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
    #+END_SRC
 
-   I frequently use [[http://personal.psu.edu/jcc8//software/latexmk-jcc/][=latexmk=]] to build my latex documents, so let's enable the
-   [[https://github.com/tom-tan/auctex-latexmk][=auctex-latexmk=]] package:
+   I frequently use [[http://personal.psu.edu/jcc8//software/latexmk-jcc/][latexmk]] to build my latex documents, so let's enable the
+   [[https://github.com/tom-tan/auctex-latexmk][auctex-latexmk]] package:
    #+BEGIN_SRC emacs-lisp
      (use-package auctex-latexmk
        :ensure t
@@ -330,8 +330,8 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
      (setq TeX-view-program-selection
            '((output-pdf "Zathura")))
    #+END_SRC
-** Popwin
-   [[https://github.com/m2ym/popwin-el][=popwin=]] enables closing popup windows via =C-g=:
+** [[https://github.com/m2ym/popwin-el][Popwin]]
+   =popwin= enables closing popup windows via =C-g=:
    #+BEGIN_SRC emacs-lisp
      (use-package popwin
        :ensure t
