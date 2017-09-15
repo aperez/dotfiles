@@ -1,0 +1,21 @@
+#+TITLE: Dotfiles
+#+AUTHOR: Alexandre Perez
+#+OPTIONS: toc:nil num:nil
+
+This is a collection of dotfiles and scripts for installing and configuring the
+tools I use day to day. Scripts and configurations in this repository assume the
+user is running an Arch-based linux distribution.
+
+* Installation
+  To install the software packages:
+  #+BEGIN_SRC sh
+    make install-packages
+  #+END_SRC
+  You might be prompted for your password.
+
+  To symlink configuration files into their appropriate places:
+  #+BEGIN_SRC sh
+    make stow
+  #+END_SRC
+
+  =make all= runs the two aforementioned targets.
