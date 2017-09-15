@@ -298,13 +298,38 @@ This [[http://orgmode.org/][=org-mode=]] document contains my [[https://en.wikip
 ** Auctex
    Enable [[https://www.gnu.org/software/auctex/][=auctex=]] package for editing LaTeX files:
    #+BEGIN_SRC emacs-lisp
-      (use-package tex
-        :defer t
-        :ensure auctex
-        :config
-        (setq TeX-auto-save t))
+     (use-package tex
+       :defer t
+       :ensure auctex
+       :config
+       (setq TeX-auto-save t)
+       (setq reftex-plug-into-AUCTeX t))
+
+     (use-package reftex
+       :ensure t
+       :config
+       (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
    #+END_SRC
 
+   I frequently use [[http://personal.psu.edu/jcc8//software/latexmk-jcc/][=latexmk=]] to build my latex documents, so let's enable the
+   [[https://github.com/tom-tan/auctex-latexmk][=auctex-latexmk=]] package:
+   #+BEGIN_SRC emacs-lisp
+     (use-package auctex-latexmk
+       :ensure t
+       :pin melpa
+       :config
+       (auctex-latexmk-setup)
+       (setq auctex-latexmk-inherit-TeX-PDF-mode t))
+   #+END_SRC
+
+   Open compiled PDF in =zathura=:
+   #+BEGIN_SRC emacs-lisp
+     (setq TeX-view-program-list
+           '(("Zathura" "zathura --fork \"%o\"")))
+
+     (setq TeX-view-program-selection
+           '((output-pdf "Zathura")))
+   #+END_SRC
 ** Popwin
    [[https://github.com/m2ym/popwin-el][=popwin=]] enables closing popup windows via =C-g=:
    #+BEGIN_SRC emacs-lisp
