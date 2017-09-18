@@ -44,7 +44,7 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (blink-cursor-mode 0)
   #+END_SRC
 
-  Turn of syntax highlighting when available:
+  Turn on syntax highlighting when available:
   #+BEGIN_SRC emacs-lisp
     (global-font-lock-mode t)
   #+END_SRC
