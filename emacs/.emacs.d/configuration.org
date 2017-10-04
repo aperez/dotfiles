@@ -112,6 +112,19 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (fset 'yes-or-no-p 'y-or-n-p)
   #+END_SRC
 
+  When splitting the window vertically/horizontally, change the focus to the
+  newly created window:
+  #+BEGIN_SRC emacs-lisp
+    (defun ap/split-window-below ()
+       (interactive)(split-window-below) (other-window 1))
+
+    (defun ap/split-window-right ()
+       (interactive)(split-window-right) (other-window 1))
+
+    (global-set-key (kbd "C-x 2") 'ap/split-window-below)
+    (global-set-key (kbd "C-x 3") 'ap/split-window-right)
+  #+END_SRC
+
   Show matching parenthesis in lisp. Also, get rid of the visual delay:
   #+BEGIN_SRC emacs-lisp
     (show-paren-mode t)
