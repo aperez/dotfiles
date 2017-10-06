@@ -172,7 +172,7 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
   when increasing the font size via =C-x C-+=, line numbers would overlap with
   the fringe ([[https://stackoverflow.com/a/33204616][more info]]).
   #+BEGIN_SRC emacs-lisp
-    (defun linum-update-window-scale-fix (win)
+    (defun ap/linum-update-window-scale-fix (win)
       (set-window-margins win
                           (ceiling (* (if (boundp 'text-scale-mode-step)
                                           (expt text-scale-mode-step
@@ -180,7 +180,7 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
                                       (if (car (window-margins))
                                           (car (window-margins)) 1)
                                       ))))
-    (advice-add #'linum-update-window :after #'linum-update-window-scale-fix)
+    (advice-add #'linum-update-window :after #'ap/linum-update-window-scale-fix)
   #+END_SRC
 
   [[https://github.com/milkypostman/powerline][Powerline]] theme for the mode line:
@@ -367,6 +367,28 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
                       '("\\.pdf::\\([0-9]+\\)\\'" . "zathura --fork \"%s\" -P %1"))
          (add-to-list 'org-file-apps
                       '("\\.pdf\\'" . "zathura --fork %s"))))
+  #+END_SRC
+
+  Setting the default folder for looking up agenda files:
+  #+BEGIN_SRC emacs-lisp
+    (setq org-directory "~/org")
+    (setq org-agenda-files '("~/org"))
+  #+END_SRC
+
+  Key bindings for =org-agenda= and =org-capture=:
+  #+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-c a") 'org-agenda)
+    (global-set-key (kbd "C-c c") 'org-capture)
+  #+END_SRC
+
+  Templates for =org-capture=:
+  #+BEGIN_SRC emacs-lisp
+    (setq org-capture-templates
+          '(("w" "Schedule :work: TODO item" entry
+             (file+headline "todo.org" "Todo")
+             "* %iTODO %^{Todo}  :work:\n%iSCHEDULED: %^t"
+             :empty-lines 1)
+            ))
   #+END_SRC
 
 * Load local configuration
