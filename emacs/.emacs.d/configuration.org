@@ -359,6 +359,13 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
        (popwin-mode t))
    #+END_SRC
 
+** [[https://github.com/Kitware/CMake/blob/master/Auxiliary/cmake-mode.el][Cmake-mode]]
+   =cmake-mode= is a major mode to handle CMake files:
+   #+BEGIN_SRC emacs-lisp
+     (use-package cmake-mode
+       :ensure t)
+   #+END_SRC
+
 * Org-mode
   Underline links:
   #+BEGIN_SRC emacs-lisp
