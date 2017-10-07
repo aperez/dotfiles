@@ -3,6 +3,7 @@ acpid
 adobe-source-code-pro-fonts
 base-devel
 biber
+cmake
 dmenu
 emacs
 firefox
