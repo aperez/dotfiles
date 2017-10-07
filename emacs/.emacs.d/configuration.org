@@ -125,6 +125,12 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (global-set-key (kbd "C-x 3") 'ap/split-window-right)
   #+END_SRC
 
+  Scroll up and down one line:
+  #+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-S-p") 'scroll-down-line)
+    (global-set-key (kbd "C-S-n") 'scroll-up-line)
+  #+END_SRC
+
   Show matching parenthesis in lisp. Also, get rid of the visual delay:
   #+BEGIN_SRC emacs-lisp
     (show-paren-mode t)
