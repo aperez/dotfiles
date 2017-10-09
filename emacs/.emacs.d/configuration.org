@@ -383,6 +383,15 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
                       '("\\.pdf\\'" . "zathura --fork %s"))))
   #+END_SRC
 
+  Allow =org-babel-execute= to evaluate python and shell code:
+  #+BEGIN_SRC emacs-lisp
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((python . t)
+       (sh . t)
+       ))
+  #+END_SRC
+
   Setting the default folder for looking up agenda files:
   #+BEGIN_SRC emacs-lisp
     (setq org-directory "~/org")
