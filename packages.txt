@@ -19,6 +19,7 @@ spotify
 stow
 texlive-lang
 texlive-most
+tk
 tmux
 ttf-font-awesome
 ufw
