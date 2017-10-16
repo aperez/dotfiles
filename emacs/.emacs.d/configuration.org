@@ -138,12 +138,13 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (setq show-paren-delay 0.0)
   #+END_SRC
 
-  Stop creating =backup~= and =#autosave#= files. I suspect I will eventually
-  turn on the backup feature, possibly using a temporary directory to store
-  them, but let's leave it off for now:
+  Stop creating =backup~=, =#autosave#=, and =.#lockfiles= files. I suspect I
+  will eventually turn on the backup feature, possibly using a temporary
+  directory to store them, but let's leave it off for now:
   #+BEGIN_SRC emacs-lisp
       (setq make-backup-files nil)
       (setq auto-save-default nil)
+      (setq create-lockfiles nil)
   #+END_SRC
 
   Save Emacs' [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html][customizations buffer]] configurations in a separate, untracked file
