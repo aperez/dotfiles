@@ -54,6 +54,7 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (setq-default indent-tabs-mode nil)
     (setq tab-width 4)
     (setq-default c-basic-offset 4)
+    (c-set-offset 'innamespace 0)
   #+END_SRC
 
   Show line numbers next to the left fringe:
