@@ -9,7 +9,9 @@ emacs
 firefox
 fish
 htop
-i3
+i3blocks
+i3lock
+i3-wm
 pass
 pulseaudio
 pulseaudio-alsa
@@ -21,7 +23,7 @@ texlive-lang
 texlive-most
 tk
 tmux
-ttf-font-awesome
+ttf-font-awesome-4
 ufw
 urxvt-resize-font-git
 vim
