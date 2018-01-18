@@ -185,3 +185,7 @@ bindsym $mod+Shift+BackSpace exec i3lock -ec 181818
 for_window [class="^Pinentry$"] floating enable
 for_window [class="^Pinentry$"] resize set 624 400
 for_window [class="^Pinentry$"] move position center
+
+# Move applications to specific workspaces
+for_window [class="Slack"] move to workspace 9
+for_window [class="Spotify"] move to workspace 10
