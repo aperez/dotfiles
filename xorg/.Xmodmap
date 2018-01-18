@@ -2,3 +2,10 @@
 clear Lock
 keycode 66 = Control_L
 add Control = Control_L
+
+! Super_R to Mode_switch
+keycode 134 = Mode_switch
+keycode 15 = 6 asciicircum 6 dead_circumflex
+keycode 48 = apostrophe quotedbl dead_acute quotedbl
+keycode 49 = grave asciitilde dead_grave dead_tilde
+keycode 54 = c C ccedilla Ccedilla
