@@ -375,6 +375,12 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
        :ensure t)
    #+END_SRC
 
+** [[https://github.com/anler/centered-window-mode][Centered-window-mode]]
+   Center text in a window:
+   #+BEGIN_SRC emacs-lisp
+     (use-package centered-window
+       :ensure t)
+   #+END_SRC
 * Org-mode
   Underline links:
   #+BEGIN_SRC emacs-lisp
