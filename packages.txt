@@ -1,6 +1,8 @@
 acpi
 acpid
 adobe-source-code-pro-fonts
+aspell
+aspell-en
 base-devel
 biber
 cmake
