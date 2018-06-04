@@ -403,7 +403,7 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((python . t)
-       (sh . t)
+       (shell . t)
        ))
   #+END_SRC
 
