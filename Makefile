@@ -1,6 +1,6 @@
 .PHONY: all install-packages stow
 
-STOWFLAGS = --ignore "readme\..*" --restow
+STOWFLAGS = --ignore "readme\..*" --ignore "\.gitignore" --restow
 
 all: install-packages stow
 
