@@ -11,6 +11,8 @@ abbr --add z 'zathura --fork'
 setenv SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
+setenv ALTERNATE_EDITOR ""
+
 # Start X at login
 if status --is-login
     set PATH $PATH /usr/bin /sbin
