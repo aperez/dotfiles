@@ -59,7 +59,8 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
 
   Show line numbers next to the left fringe:
   #+BEGIN_SRC emacs-lisp
-    (global-linum-mode 1)
+    (when (version<= "26.0.50" emacs-version )
+      (global-display-line-numbers-mode))
   #+END_SRC
 
   Highlight cursor line:
@@ -163,33 +164,17 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
   #+END_SRC
 
   [[https://github.com/belak/base16-emacs][Base16]] default-dark theme. I find my =custom-theme-set-faces= tweaks to
-  =fringe= and =linum= colors make the theme more visually appealing when
-  =linum-mode= is active:
+  =fringe= and =line-number-current-line= colors make the theme more visually
+  appealing when =display-line-numbers-mode= is active:
   #+BEGIN_SRC emacs-lisp
     (use-package base16-theme
       :ensure t
       :config
       (load-theme 'base16-default-dark t)
       (custom-theme-set-faces 'base16-default-dark
-        `(linum ((t (:background ,(plist-get base16-default-dark-colors :base00)
-                     :foreground ,(plist-get base16-default-dark-colors :base02)))))
+        `(line-number-current-line ((t (:background ,(plist-get base16-default-dark-colors :base01)))))
         `(fringe ((t (:background ,(plist-get base16-default-dark-colors :base01)))))
         ))
-  #+END_SRC
-
-  Fix the size of line numbers shown when =linum-mode= is active. Otherwise,
-  when increasing the font size via =C-x C-+=, line numbers would overlap with
-  the fringe ([[https://stackoverflow.com/a/33204616][more info]]).
-  #+BEGIN_SRC emacs-lisp
-    (defun ap/linum-update-window-scale-fix (win)
-      (set-window-margins win
-                          (ceiling (* (if (boundp 'text-scale-mode-step)
-                                          (expt text-scale-mode-step
-                                                text-scale-mode-amount) 1)
-                                      (if (car (window-margins))
-                                          (car (window-margins)) 1)
-                                      ))))
-    (advice-add #'linum-update-window :after #'ap/linum-update-window-scale-fix)
   #+END_SRC
 
   [[https://github.com/milkypostman/powerline][Powerline]] theme for the mode line:
