@@ -27,6 +27,7 @@ texlive-most
 tk
 tmux
 ttf-font-awesome-4
+otf-font-awesome
 ufw
 urxvt-resize-font-git
 vim
