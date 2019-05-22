@@ -14,4 +14,6 @@ if [[ -f ~/.Xresources ]]; then
     xrdb -merge ~/.Xresources
 fi
 
+xset -dpms s off
+
 exec i3
