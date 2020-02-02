@@ -2,11 +2,13 @@
 
 STOWFLAGS = --ignore "readme\..*" --ignore "\.gitignore" --restow
 
-all: install-packages stow
+all: install-packages set-terminal stow
 
 install-packages:
-	sudo pacman -Sy --needed pacaur
-	pacaur -S --needed --noconfirm `cat packages.txt`
+	cat packages.txt | xargs sudo apt-get install -y
+
+set-terminal:
+	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
 
 stow:
 	stow $(STOWFLAGS) `ls -d */`
