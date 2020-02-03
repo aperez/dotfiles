@@ -189,3 +189,6 @@ for_window [class="^Pinentry-gtk-2$"] move position center
 # Move applications to specific workspaces
 for_window [class="Slack"] move to workspace 9
 for_window [class="Spotify"] move to workspace 10
+
+# Black background
+exec --no-startup-id xsetroot -solid "#000000"
