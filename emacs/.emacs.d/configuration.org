@@ -374,10 +374,26 @@ This [[http://orgmode.org/][org-mode]] document contains my [[https://en.wikiped
        :ensure t)
    #+END_SRC
 
+** [[https://github.com/rust-lang/rust-mode][Rust-mode]]
+   Major mode for editing rust files:
+   #+BEGIN_SRC emacs-lisp
+     (use-package rust-mode
+       :ensure t)
+
+     (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+   #+END_SRC
+
 ** [[https://github.com/jrblevin/markdown-mode][Markdown-mode]]
    Major mode for editing markdown files:
    #+BEGIN_SRC emacs-lisp
      (use-package markdown-mode
+       :ensure t)
+   #+END_SRC
+
+** [[https://github.com/spotify/dockerfile-mode][Dockerfile-mode]]
+   Major mode for editing Dockerfiles:
+   #+BEGIN_SRC emacs-lisp
+     (use-package dockerfile-mode
        :ensure t)
    #+END_SRC
 
