@@ -1,5 +1,6 @@
 aspell
 aspell-en
+autojump
 biber
 build-essential
 cmake
@@ -16,6 +17,7 @@ i3blocks
 pass
 pinentry-gtk2
 python3
+python3-pip
 rxvt-unicode
 stow
 texlive-full
