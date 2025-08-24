@@ -1,0 +1,19 @@
+[font]
+size = 15
+
+[font.normal]
+family = "Source Code Pro"
+style = "Regular"
+
+[font.bold]
+family = "Source Code Pro"
+style = "Bold"
+
+[font.italic]
+family = "Source Code Pro"
+style = "Italic"
+
+[font.bold_italic]
+family = "Source Code Pro"
+style = "Bold Italic"
+

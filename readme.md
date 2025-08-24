@@ -10,3 +10,10 @@ To install the packages:
 $ make install-packages
 ```
 You might be prompted for your password.
+
+To symlink configuration files into their appropriate places:
+```
+$ make stow
+```
+
+`make all` runs the two aforementioned targets.
