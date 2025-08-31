@@ -101,3 +101,11 @@
   :config (projectile-mode +1)
   :custom ((projectile-completion-system 'ivy))
   :bind-keymap ("M-p" . projectile-command-map))
+
+;; Org mode
+(use-package org
+  :pin org
+  :config
+  (setq org-ellipsis " ▾")
+  (setq org-directory "~/org")
+  (setq org-agenda-files '("~/org")))
