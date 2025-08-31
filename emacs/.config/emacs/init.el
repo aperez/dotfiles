@@ -84,6 +84,7 @@
 
 (use-package counsel
   :after ivy
+  :delight
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("C-x b" . counsel-ibuffer)
