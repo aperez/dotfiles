@@ -3,6 +3,7 @@ set $mod Mod4
 set $term alacritty
 set $menu wmenu-run
 set $browser firefox
+set $editor emacs
 
 ### Host-dependent configurations
 include ~/.config/sway/config.d/$(hostname)
@@ -124,8 +125,12 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
+
 # Launch browser:
 bindsym $mod+b exec $browser
+
+# Launch editor
+bindsym $mod+m exec $editor
 
 #
 # Status Bar:
