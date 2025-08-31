@@ -22,6 +22,10 @@
 (setq-default fill-column 80)
 (setq-default word-wrap t)
 
+;; Window splitting behavior
+(setq split-height-threshold nil)
+(setq split-width-threshold 250)
+
 ;; Trailing whitespace
 (setq require-final-newline t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -64,9 +68,32 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
-(use-package counsel
+(use-package popwin
   :ensure t
-  :bind ("M-x" . counsel-M-x))
+  :config (popwin-mode t))
+
+(use-package ivy
+  :defer 0.1
+  :delight
+  :bind (("C-c C-r" . ivy-resume)
+         ("C-x B" . ivy-switch-buffer-other-window))
+  :custom
+  (ivy-count-format "(%d/%d) ")
+  (ivy-use-virtual-buffers t)
+  :config (ivy-mode 1))
+
+(use-package counsel
+  :after ivy
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("C-x b" . counsel-ibuffer)
+         :map minibuffer-local-map
+         ("C-r" . counsel-minibuffer-history))
+  :config (counsel-mode 1))
+
+(use-package swiper
+  :after ivy
+  :bind ("C-s" . swiper))
 
 (use-package projectile
   :ensure t
@@ -74,7 +101,3 @@
   :config (projectile-mode +1)
   :custom ((projectile-completion-system 'ivy))
   :bind-keymap ("M-p" . projectile-command-map))
-
-(use-package popwin
-  :ensure t
-  :config (popwin-mode t))
