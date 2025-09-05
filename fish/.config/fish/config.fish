@@ -8,3 +8,6 @@ if status is-interactive
         set -Ux SSH_AGENT_PID $SSH_AGENT_PID
     end
 end
+
+fzf --fish | source
+zoxide init fish | source

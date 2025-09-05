@@ -6,6 +6,7 @@ firefox
 fish
 emacs-wayland
 eza
+fzf
 git
 gnupg
 grim
@@ -25,5 +26,5 @@ wireplumber
 wl-clipboard
 wmenu
 xorg-xwayland
+zoxide
 zstd
-
