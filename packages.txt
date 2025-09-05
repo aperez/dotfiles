@@ -1,11 +1,13 @@
 adobe-source-code-pro-fonts
 alacritty
 base-devel
+bat
 curl
-firefox
-fish
 emacs-wayland
 eza
+fd
+firefox
+fish
 fzf
 git
 gnupg
