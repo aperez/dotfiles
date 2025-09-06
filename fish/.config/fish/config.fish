@@ -17,7 +17,7 @@ if status is-interactive
     end
 end
 
-set -gx FZF_DEFAULT_COMMAND "fd --hidden --follow --exclude='**/.git/'"
+set -gx FZF_DEFAULT_COMMAND "fd --hidden --follow"
 
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND "--type=f"
 set -gx FZF_CTRL_T_OPTS "--preview='bat --style=numbers --color=always {}'"
