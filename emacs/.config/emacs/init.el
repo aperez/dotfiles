@@ -43,7 +43,7 @@
 (setq create-lockfiles nil)
 
 ;; Theming
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-15"))
 
 (use-package base16-theme
   :ensure t
@@ -78,6 +78,7 @@
 
 (use-package ivy
   :defer 0.1
+  :ensure t
   :delight
   :bind (("C-c C-r" . ivy-resume)
          ("C-x B" . ivy-switch-buffer-other-window))
@@ -88,6 +89,7 @@
 
 (use-package counsel
   :after ivy
+  :ensure t
   :delight
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
@@ -98,6 +100,7 @@
 
 (use-package swiper
   :after ivy
+  :ensure t
   :bind ("C-s" . swiper))
 
 (use-package projectile
@@ -110,6 +113,7 @@
 ;; Org mode
 (use-package org
   :pin org
+  :ensure t
   :config
   (setq org-ellipsis " ▾")
   (setq org-directory "~/org")
