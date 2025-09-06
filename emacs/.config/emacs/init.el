@@ -64,6 +64,10 @@
   :delight
   :config (which-key-mode))
 
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
