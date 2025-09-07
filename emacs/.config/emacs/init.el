@@ -110,6 +110,12 @@
   :custom ((projectile-completion-system 'ivy))
   :bind-keymap ("M-p" . projectile-command-map))
 
+(use-package company
+  :ensure t
+  :delight
+  :init (setq company-idle-delay 0.3)
+  :config (global-company-mode t))
+
 ;; Org mode
 (use-package org
   :pin org
@@ -118,3 +124,20 @@
   (setq org-ellipsis " ▾")
   (setq org-directory "~/org")
   (setq org-agenda-files '("~/org")))
+
+;; Languages
+(use-package rust-mode
+  :ensure t
+  :init
+  (setq rust-mode-treesitter-derive t))
+
+(use-package eglot
+  :ensure t
+  :hook ((rust-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs
+               '(rust-mode . ("/usr/lib/rustup/bin/rust-analyzer"
+                              :initializationOptions
+                              (:procMacro (:enable t)
+                               :cargo (:buildScripts (:enable t)
+                                      :features "all"))))))

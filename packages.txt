@@ -20,6 +20,7 @@ openssh
 pass
 pinentry
 ripgrep
+rustup
 spotify-launcher
 steam
 stow
