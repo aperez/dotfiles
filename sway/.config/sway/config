@@ -79,6 +79,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # Toggle last two workspaces:
 bindsym $mod+equal workspace back_and_forth
 bindsym $mod+minus workspace back_and_forth
+bindsym $mod+grave workspace back_and_forth
 
 #
 # Layout stuff:
