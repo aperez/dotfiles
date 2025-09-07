@@ -25,6 +25,7 @@ spotify-launcher
 steam
 stow
 sway
+ufw
 wireplumber
 wl-clipboard
 wmenu
