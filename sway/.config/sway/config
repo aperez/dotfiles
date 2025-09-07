@@ -11,6 +11,9 @@ include ~/.config/sway/config.d/$(hostname)
 ### Font
 font pango:Source Code Pro 11
 
+### Keymap
+input * xkb_options "ctrl:nocaps"
+
 ### Key bindings
 # Start a terminal
 bindsym $mod+Return exec $term
