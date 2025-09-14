@@ -12,3 +12,4 @@ output DP-2 {
 }
 
 focus output DP-1
+exec xrandr --output DP-1 --primary
