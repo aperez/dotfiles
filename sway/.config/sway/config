@@ -4,6 +4,7 @@ set $term alacritty
 set $menu wmenu-run
 set $browser firefox
 set $editor emacs
+set $spotify spotify-launcher
 
 ### Host-dependent configurations
 include ~/.config/sway/config.d/$(hostname)
@@ -138,6 +139,9 @@ bindsym $mod+b exec $browser
 
 # Launch editor
 bindsym $mod+m exec $editor
+
+# Launch spotify
+bindsym $mod+p exec $spotify
 
 #
 # Status Bar:
