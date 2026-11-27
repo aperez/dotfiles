@@ -30,6 +30,7 @@ in
       modifier = mod;
       terminal = "ghostty";
       menu = "wmenu-run";
+      defaultWorkspace = "workspace number 1";
       fonts = {
         names = [ "JetBrains Mono" ];
         size = 11.0;
