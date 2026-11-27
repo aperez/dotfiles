@@ -79,6 +79,7 @@
       ];
       # Tiling WM: no client-side title bar
       window-decoration = "none";
+      window-inherit-working-directory = false;
     };
   };
 
