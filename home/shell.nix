@@ -18,7 +18,7 @@ in
       ll = "eza --group-directories-first --long --git --all --header";
       tree = "eza --tree";
     };
-    shellAbbrs.rebuild = "sudo nixos-rebuild switch --file ~/dotfiles --attr (hostname)";
+    shellAbbrs.rebuild = "sudo nixos-rebuild switch --file ${toString ../.} --attr (hostname)";
   };
 
   home.sessionVariables = {
