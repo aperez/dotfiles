@@ -17,6 +17,9 @@ in
 
   hardware.enableRedistributableFirmware = true;
 
+  # Some routers drop parallel A/AAAA replies
+  networking.resolvconf.extraOptions = [ "single-request-reopen" ];
+
   # Nix: no channels, <nixpkgs> is the same pinned nixpkgs the system uses.
   nix.channel.enable = false;
   nix.nixPath = [ "nixpkgs=${sources.nixpkgs}" ];
