@@ -5,6 +5,7 @@
     package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.base16-theme
+      epkgs.envrc
       epkgs.nix-mode
     ];
   };
