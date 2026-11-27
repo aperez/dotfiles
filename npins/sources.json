@@ -1,0 +1,38 @@
+{
+  "pins": {
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "361da94fb55c67094ec47322d2757d6616a0de92",
+      "url": "https://github.com/nix-community/home-manager/archive/361da94fb55c67094ec47322d2757d6616a0de92.tar.gz",
+      "hash": "sha256-GUY/RHSSnAJKKI3xk7xrSXrsXFgIOgFrRJOD4uub5J8="
+    },
+    "nixos-hardware": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "NixOS",
+        "repo": "nixos-hardware"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "ec39df522f291a1da3bee80d3ff67d99c57a17b0",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/ec39df522f291a1da3bee80d3ff67d99c57a17b0.tar.gz",
+      "hash": "sha256-9QjYnidlKg7EtcPkr07D3epP7I1WuVBfA5nk47+I5dc="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "artifact": "nixexprs.tar.xz",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1125864.2786a2a72088/nixexprs.tar.xz",
+      "hash": "sha256-pAEASBc6wof0S58XcSEdZoQ2iFQDkCnZwH+wFLrkd1Q="
+    }
+  },
+  "version": 8
+}
