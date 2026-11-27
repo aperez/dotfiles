@@ -42,7 +42,7 @@ in
       keybindings = lib.mkOptionDefault {
         "${mod}+h" = "splith";
         "${mod}+b" = "exec firefox";
-        "${mod}+m" = "exec emacsclient --create-frame";
+        "${mod}+m" = "exec emacsclient --create-frame --alternate-editor=''";
         "${mod}+p" = "exec spotify";
         "${mod}+Escape" = "exec swaylock -f";
         # Default uses -b, which runs `swaymsg exit` inside a terminal.

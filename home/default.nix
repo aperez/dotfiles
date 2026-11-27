@@ -5,7 +5,7 @@
   imports = [
     ./shell.nix
     ./sway
-    ./emacs.nix
+    ./emacs
   ];
 
   home.packages = with pkgs; [
