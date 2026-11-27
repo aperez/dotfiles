@@ -71,6 +71,10 @@ in
 
         "Print" = "exec ${grim}";
         "Shift+Print" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
+
+        # Rebound in extraConfig so workspace 10 sorts last
+        "${mod}+0" = null;
+        "${mod}+Shift+0" = null;
       };
 
       bars = [
@@ -93,5 +97,10 @@ in
         }
       ];
     };
+
+    extraConfig = ''
+      bindsym ${mod}+0 workspace number 10
+      bindsym ${mod}+Shift+0 move container to workspace number 10
+    '';
   };
 }
