@@ -22,6 +22,10 @@ in
     options = "--delete-older-than 14d";
   };
   nix.optimise.automatic = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # Locale and keyboard (ctrl:nocaps on the TTY too)
