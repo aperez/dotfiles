@@ -26,6 +26,19 @@
   gtk = {
     enable = true;
     colorScheme = "dark";
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+  };
+
+  home.pointerCursor = {
+    enable = true;
+    package = pkgs.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+    gtk.enable = true;
+    sway.enable = true;
   };
 
   programs.git = {
