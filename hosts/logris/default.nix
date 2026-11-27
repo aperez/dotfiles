@@ -14,8 +14,6 @@ in
     "${hw}/common/pc/ssd"
   ];
 
-  networking.hostName = "logris";
-
   networking.networkmanager.enable = true;
   users.users.aperez.extraGroups = [ "networkmanager" ];
 

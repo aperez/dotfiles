@@ -1,11 +1,13 @@
 # Shared by every host. Keep this to things that need root or system
 # integration; everything else belongs in ../home.
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 let
   sources = import ../npins;
 in
 {
   imports = [ "${sources.home-manager}/nixos" ];
+
+  networking.hostName = host;
 
   # Boot
   boot.loader.systemd-boot.enable = true;
@@ -47,6 +49,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    extraSpecialArgs = { inherit host; };
     users.aperez = ../home;
   };
 

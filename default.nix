@@ -6,7 +6,10 @@ let
   nixos =
     host:
     import "${sources.nixpkgs}/nixos" {
-      configuration = ./hosts/${host};
+      configuration = {
+        imports = [ ./hosts/${host} ];
+        _module.args.host = host;
+      };
     };
 in
 {
