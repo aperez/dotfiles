@@ -7,7 +7,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(push '(font . "JetBrains Mono-15") default-frame-alist)
 (push '(background-color . "#181818") default-frame-alist)
 (push '(foreground-color . "#d8d8d8") default-frame-alist)
 

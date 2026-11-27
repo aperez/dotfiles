@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  host,
+  pkgs,
+  ...
+}:
 {
   programs.emacs = {
     enable = true;
@@ -19,4 +24,8 @@
     toString ./early-init.el
   );
   xdg.configFile."emacs/init.el".source = config.lib.file.mkOutOfStoreSymlink (toString ./init.el);
+
+  xdg.configFile."emacs/${host}-early.el".text = ''
+    (push '(font . "JetBrains Mono-${toString config.my.fontSize}") default-frame-alist)
+  '';
 }
