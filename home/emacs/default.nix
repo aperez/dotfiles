@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
-      epkgs.doom-themes
+      epkgs.base16-theme
       epkgs.nix-mode
     ];
   };
