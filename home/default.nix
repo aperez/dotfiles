@@ -23,6 +23,11 @@
     defaultFonts.monospace = [ "JetBrains Mono" ];
   };
 
+  gtk = {
+    enable = true;
+    colorScheme = "dark";
+  };
+
   programs.git = {
     enable = true;
     settings = {
