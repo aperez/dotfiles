@@ -13,6 +13,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   zramSwap.enable = true;
 
+  hardware.enableRedistributableFirmware = true;
+
   # Nix: no channels, <nixpkgs> is the same pinned nixpkgs the system uses.
   nix.channel.enable = false;
   nix.nixPath = [ "nixpkgs=${sources.nixpkgs}" ];

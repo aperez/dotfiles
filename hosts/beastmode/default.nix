@@ -8,6 +8,8 @@
 
   networking.hostName = "beastmode";
 
+  hardware.cpu.amd.updateMicrocode = true;
+
   # Nvidia (open kernel module, same as nvidia-open on Arch)
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
