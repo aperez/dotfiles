@@ -1,4 +1,6 @@
 {
+  my.fontSize = 15;
+
   wayland.windowManager.sway = {
     config.output = {
       DP-2 = {

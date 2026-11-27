@@ -8,6 +8,8 @@ let
   brightnessctl = lib.getExe pkgs.brightnessctl;
 in
 {
+  my.fontSize = 14;
+
   # Lock before suspend (e.g. closing the lid). No idle timeouts.
   services.swayidle = {
     enable = true;

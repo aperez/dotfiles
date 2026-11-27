@@ -1,8 +1,9 @@
 # User environment shared by every host. Host-specific bits live in
 # ../hosts/<host>/home.nix.
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
+    ./options.nix
     ./shell.nix
     ./sway
     ./emacs
@@ -70,7 +71,7 @@
     settings = {
       theme = "0x96f";
       font-family = "JetBrains Mono";
-      font-size = 15;
+      font-size = config.my.fontSize;
       font-feature = [
         "-calt"
         "-liga"
