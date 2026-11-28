@@ -1,6 +1,8 @@
 {
   my.fontSize = 15;
 
+  programs.firefox.profiles.default.settings."layout.css.devPixelsPerPx" = "1.25";
+
   wayland.windowManager.sway = {
     config.output = {
       DP-2 = {
