@@ -26,6 +26,8 @@
     config.lib.file.mkOutOfStoreSymlink "${config.my.dotfiles}/home/emacs/init.el";
 
   xdg.configFile."emacs/${host}-early.el".text = ''
+    ;;; -*- lexical-binding: t -*-
+
     (push '(font . "JetBrains Mono-${toString config.my.fontSize}") default-frame-alist)
   '';
 }
