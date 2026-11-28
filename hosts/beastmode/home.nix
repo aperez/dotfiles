@@ -1,7 +1,19 @@
 {
   my.fontSize = 15;
 
-  programs.firefox.profiles.default.settings."layout.css.devPixelsPerPx" = "1.25";
+  programs.firefox.profiles.default.settings = {
+    "layout.css.devPixelsPerPx" = "1.25";
+    # Hardware video decoding through nvidia-vaapi-driver.
+    "media.ffmpeg.vaapi.enabled" = true;
+    "media.hardware-video-decoding.force-enabled" = true;
+  };
+
+  home.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    # The RDD sandbox blocks the driver's access to /dev/nvidia*.
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+  };
 
   wayland.windowManager.sway = {
     config.output = {

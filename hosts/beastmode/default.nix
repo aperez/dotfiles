@@ -13,6 +13,7 @@
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
+    videoAcceleration = true;
   };
   programs.sway.extraOptions = [ "--unsupported-gpu" ];
 
