@@ -5,6 +5,7 @@ NixOS + home-manager, no flakes. Sources are pinned with [npins](https://github.
 ```
 default.nix          entry point: one attribute per host
 npins/               pinned nixpkgs (nixos-unstable), home-manager, nixos-hardware
+modules/             option modules imported by both NixOS and home-manager
 hosts/common.nix     system config shared by all hosts
 hosts/<host>/        default.nix (system), home.nix (user), hardware.nix
 home/                home-manager config shared by all hosts

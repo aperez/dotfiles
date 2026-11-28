@@ -1,11 +1,19 @@
 # Shared by every host. Keep this to things that need root or system
 # integration; everything else belongs in ../home.
-{ pkgs, host, ... }:
+{
+  config,
+  pkgs,
+  host,
+  ...
+}:
 let
   sources = import ../npins;
 in
 {
-  imports = [ "${sources.home-manager}/nixos" ];
+  imports = [
+    ../modules/identity.nix
+    "${sources.home-manager}/nixos"
+  ];
 
   networking.hostName = host;
 
@@ -42,7 +50,7 @@ in
   console.useXkbConfig = true;
 
   # User
-  users.users.aperez = {
+  users.users.${config.my.user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
@@ -53,7 +61,10 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit host; };
-    users.aperez = ../home;
+    users.${config.my.user}.imports = [
+      ../home
+      ./${host}/home.nix
+    ];
   };
 
   # Desktop: sway is enabled here (portals, polkit, PAM for swaylock,

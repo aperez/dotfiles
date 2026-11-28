@@ -1,5 +1,5 @@
 # Laptop: ThinkPad X1 Carbon 5th gen (Kaby Lake, Intel graphics)
-{ ... }:
+{ config, ... }:
 let
   hw = (import ../../npins).nixos-hardware;
 in
@@ -15,9 +15,7 @@ in
   ];
 
   networking.networkmanager.enable = true;
-  users.users.aperez.extraGroups = [ "networkmanager" ];
+  users.users.${config.my.user}.extraGroups = [ "networkmanager" ];
 
   services.power-profiles-daemon.enable = true;
-
-  home-manager.users.aperez = ./home.nix;
 }

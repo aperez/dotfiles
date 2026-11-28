@@ -3,6 +3,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ../modules/identity.nix
     ./options.nix
     ./shell.nix
     ./sway
@@ -46,8 +47,8 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Alexandre Perez";
-      user.email = "alexandrecperez@gmail.com";
+      user.name = config.my.fullName;
+      user.email = config.my.email;
       init.defaultBranch = "main";
     };
   };

@@ -18,6 +18,4 @@
   programs.sway.extraOptions = [ "--unsupported-gpu" ];
 
   programs.steam.enable = true;
-
-  home-manager.users.aperez = ./home.nix;
 }
