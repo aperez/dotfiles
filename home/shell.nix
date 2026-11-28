@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 let
   fd = "fd --hidden --follow";
 in
@@ -18,7 +18,7 @@ in
       ll = "eza --group-directories-first --long --git --all --header";
       tree = "eza --tree";
     };
-    shellAbbrs.rebuild = "sudo nixos-rebuild switch --file ${toString ../.} --attr (hostname)";
+    shellAbbrs.rebuild = "sudo nixos-rebuild switch --file ${config.my.dotfiles} --attr (hostname)";
   };
 
   home.sessionVariables = {

@@ -20,10 +20,10 @@
     startWithUserSession = "graphical";
   };
 
-  xdg.configFile."emacs/early-init.el".source = config.lib.file.mkOutOfStoreSymlink (
-    toString ./early-init.el
-  );
-  xdg.configFile."emacs/init.el".source = config.lib.file.mkOutOfStoreSymlink (toString ./init.el);
+  xdg.configFile."emacs/early-init.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.my.dotfiles}/home/emacs/early-init.el";
+  xdg.configFile."emacs/init.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.my.dotfiles}/home/emacs/init.el";
 
   xdg.configFile."emacs/${host}-early.el".text = ''
     (push '(font . "JetBrains Mono-${toString config.my.fontSize}") default-frame-alist)
