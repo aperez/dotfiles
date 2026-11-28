@@ -1,10 +1,5 @@
 { lib, ... }:
 {
-  options.my.fontSize = lib.mkOption {
-    type = lib.types.int;
-    description = "Font size, set per host.";
-  };
-
   options.my.dotfiles = lib.mkOption {
     type = lib.types.str;
     readOnly = true;

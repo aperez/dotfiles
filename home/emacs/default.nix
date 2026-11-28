@@ -28,6 +28,6 @@
   xdg.configFile."emacs/${host}-early.el".text = ''
     ;;; -*- lexical-binding: t -*-
 
-    (push '(font . "JetBrains Mono-${toString config.my.fontSize}") default-frame-alist)
+    (push '(font . "${config.my.font.name}-${toString config.my.font.size}") default-frame-alist)
   '';
 }

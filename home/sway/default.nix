@@ -1,6 +1,11 @@
 # Sway itself is installed by programs.sway in hosts/common.nix; this only
 # writes its config. Keybindings are sway's defaults plus the changes below.
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   mod = "Mod4";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
@@ -32,11 +37,11 @@ in
       menu = "wmenu-run";
       defaultWorkspace = "workspace number 1";
       fonts = {
-        names = [ "JetBrains Mono" ];
+        names = [ config.my.font.name ];
         size = 11.0;
       };
 
-      input."*".xkb_options = "ctrl:nocaps";
+      input."*".xkb_options = config.my.xkbOptions;
 
       # mkOptionDefault keeps sway's default bindings and layers these on top.
       keybindings = lib.mkOptionDefault {
@@ -82,7 +87,7 @@ in
           position = "bottom";
           statusCommand = "${pkgs.writeShellScript "sway-bar" (builtins.readFile ./bar.sh)}";
           fonts = {
-            names = [ "JetBrains Mono" ];
+            names = [ config.my.font.name ];
             size = 12.0;
           };
           colors = {

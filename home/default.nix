@@ -4,6 +4,7 @@
 {
   imports = [
     ../modules/identity.nix
+    ../modules/preferences.nix
     ./options.nix
     ./shell.nix
     ./sway
@@ -13,7 +14,7 @@
   home.packages = with pkgs; [
     claude-code
     curl
-    jetbrains-mono
+    config.my.font.package
     nixfmt
     npins
     noto-fonts-cjk-sans
@@ -23,7 +24,7 @@
 
   fonts.fontconfig = {
     enable = true;
-    defaultFonts.monospace = [ "JetBrains Mono" ];
+    defaultFonts.monospace = [ config.my.font.name ];
   };
 
   gtk = {
@@ -71,8 +72,8 @@
     enable = true;
     settings = {
       theme = "0x96f";
-      font-family = "JetBrains Mono";
-      font-size = config.my.fontSize;
+      font-family = config.my.font.name;
+      font-size = config.my.font.size;
       font-feature = [
         "-calt"
         "-liga"

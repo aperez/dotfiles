@@ -1,5 +1,5 @@
 {
-  my.fontSize = 15;
+  my.font.size = 15;
 
   programs.firefox.profiles.default.settings = {
     "layout.css.devPixelsPerPx" = "1.25";

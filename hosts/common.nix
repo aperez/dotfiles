@@ -12,6 +12,7 @@ in
 {
   imports = [
     ../modules/identity.nix
+    ../modules/preferences.nix
     "${sources.home-manager}/nixos"
   ];
 
@@ -43,10 +44,10 @@ in
   ];
   nixpkgs.config.allowUnfree = true;
 
-  # Locale and keyboard (ctrl:nocaps on the TTY too)
+  # Locale and keyboard (xkb options on the TTY too)
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
-  services.xserver.xkb.options = "ctrl:nocaps";
+  services.xserver.xkb.options = config.my.xkbOptions;
   console.useXkbConfig = true;
 
   # User
